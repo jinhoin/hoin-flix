@@ -10,24 +10,23 @@ const api = axios.create({
 
 // 문자 열 조심 /를 넣지말자 절대경로로 인식됨
 export const moviesApi = {
-    now_playing: () => api.get("movie/now_playing"),
+    nowPlaying: () => api.get("movie/now_playing"),
     upcomming: () => api.get("movie/upcomming"),
     popular: () => api.get("movie/popular"),
-    movieDetail: (id) => api.get(`movie/${id}`, {
-        params : {
-                append_to_response: "videos"
-        }
+    movieDetail: (id) => 
+        api.get(`movie/${id}`, {
+            params : {
+                  append_to_response: "videos"
+            }
     }),
-    search: (term) => 
+    search: term => 
     api.get("search/movie", {
         params : {
             query : encodeURIComponent(term)
         }
-    });
-
+    })
     
-    
-}
+};
 
 export const tvApi = {
     topRated : () => api.get("tv/top_ratead"),
@@ -43,7 +42,8 @@ export const tvApi = {
         params : {
             query : encodeURIComponent(term)
         }
-    });
+     }
+    )
     
 }
 
