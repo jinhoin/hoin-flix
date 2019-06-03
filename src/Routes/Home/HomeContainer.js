@@ -1,48 +1,50 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
-import {moviesApi} from "api"
+import { moviesApi } from "api"
 
 
-export default class extends React.Component{
+export default class extends React.Component {
     state = {
-        nowPlaying :null,
+        nowPlaying: null,
         upcoming: null,
-        popular :  null,
-        error : null,
-        loading :true,
+        popular: null,
+        error: null,
+        loading: true,
     };
 
-    async componentDidMount(){
-        try{
+    async componentDidMount() {
+        try {
             // 모조건 기다리게 한다 api resopne 을 받지 않음
             const nowPlaying = await moviesApi.nowPlaying();
+            const upcoming = await moviesApi.upcoming();
+
             console.log(nowPlaying);
 
-        } catch(error){
+        } catch (error) {
             this.setState({
-                error : " Cant't movies infomation."
+                error: " Cant't find movies infomation."
             })
         }
-        finally{
+        finally {
             // 머가 됫든 loading false
             this.setState({
-                loading:false
+                loading: false
             })
         }
     }
 
-    
 
-    render(){
-        const {nowPlaying, upComing,popular , error, loading} = this.state;
+
+    render() {
+        const { nowPlaying, upComing, popular, error, loading } = this.state;
         return (
             <HomePresenter
-            
+
                 nowPlaying={nowPlaying}
-                upComing = {upComing}
+                upComing={upComing}
                 popular={popular}
-                error = {error}
-                loading = {loading}
+                error={error}
+                loading={loading}
 
             />
         )
