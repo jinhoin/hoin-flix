@@ -49,7 +49,7 @@ const SLink = styled(Link)`
 export default withRouter(({ location: { pathname } }) => (
     <Header>
         {
-            console.log(pathname)
+            console.log(pathname, 'header.js에서 호출 위치를 알수있다')
         }
         <List>
             <Item current={pathname === "/"}>

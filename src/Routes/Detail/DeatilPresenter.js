@@ -1,3 +1,3 @@
-export const Deatail = () => "Detail";
+export default () => "Detail";
 
 

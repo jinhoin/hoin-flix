@@ -15,15 +15,24 @@ export default class extends React.Component {
     async componentDidMount() {
         try {
             // 모조건 기다리게 한다 api resopne 을 받지 않음
-            const nowPlaying = await moviesApi.nowPlaying();
-            const upcoming = await moviesApi.upcoming();
+            const { data: { results: nowPlaying } } = await moviesApi.nowPlaying();
+            const { data: { results: upcoming } } = await moviesApi.upcoming();
+            const { data: { results: popular } } = await moviesApi.popular();
 
-            console.log(nowPlaying);
+
+            console.log('tag');
+            this.setState({
+                popular,
+                nowPlaying,
+                upcoming,
+            });
 
         } catch (error) {
             this.setState({
                 error: " Cant't find movies infomation."
             })
+            console.log(error);
+
         }
         finally {
             // 머가 됫든 loading false
@@ -37,6 +46,7 @@ export default class extends React.Component {
 
     render() {
         const { nowPlaying, upComing, popular, error, loading } = this.state;
+        // console.log(this.state);
         return (
             <HomePresenter
 
