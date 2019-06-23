@@ -1,6 +1,6 @@
 import React from "react";
-import TVPresnter from "./TVPresenter";
-import {tvApi} from "api";
+import TVPresenter from "./TVPresenter";
+import { tvApi } from "api";
 export default class extends React.Component {
     state = {
         topRated: null,
@@ -12,9 +12,10 @@ export default class extends React.Component {
     };
     async componentDidMount() {
         try {
-            const { data : { results: topRated } } = await tvApi.topRated();
-            const { data : { results: popular } } = await tvApi.popular();
-            const { data : { results : airingToday}} = await tvApi.airingToday();
+            const { data: { results: topRated } } = await tvApi.topRated();
+            const { data: { results: popular } } = await tvApi.popular();
+            const { data: { results: airingToday } } = await tvApi.airingToday();
+
             console.log(topRated);
             console.log(popular);
             // 함수명과 변수명이 같으면 생략가능 js에서는
@@ -27,22 +28,24 @@ export default class extends React.Component {
 
         } catch (error) {
             this.setState({
-                error : "error mounted"
+                error: "error mounted"
             });
+        }finally{
+            this.setState({
+                loading : false
+            })
         }
     }
 
 
     render() {
-        const { nowPlaying, upComing, popular, error, loading, tvDeatail } = this.state;
-        console.log(this.state);
+        const { topRated, popular, airingToday, error, loading } = this.state;
+        console.log('[TVContainer ]',this.state);
         return (
-            <TVPresnter
-                nowPlaying={nowPlaying}
-                upComing={upComing}
+            <TVPresenter
+                topRated={topRated}
                 popular={popular}
-                tvDetail={tvDeatail}
-
+                airingToday={airingToday}
                 error={error}
                 loading={loading}
 

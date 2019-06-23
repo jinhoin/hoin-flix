@@ -14,35 +14,42 @@ export default class extends React.Component {
     };
 
 
-    handleSubmit = () => {
-        const {
-            searchTerm
-        } = this.state;
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { searchTerm } = this.state;
         if (searchTerm !== "") {
-            this.searchByTerm(searchTerm);
+            this.searchByTerm();
         }
+    }
+
+    updateTerm = (event) => {
+        const { target: { value } } = event;
+        console.log(value);
+        this.setState({
+            searchTerm: value
+        });
+
     }
 
     searchByTerm = async () => {
         const {
-            searchTurm
+            searchTerm
         } = this.state;
 
         try {
-
             const {
                 data: {
                     results: movieResults
                 }
-            } = await moviesApi.search(searchTurm);
+            } = await moviesApi.search(searchTerm);
 
             const {
                 data: {
                     results: tvResults
                 }
-            } = await tvApi.search(searchTurm);
-            console.log(movieResults, 'movieSearch');
-            console.log(tvResults, 'tvsearch');
+            } = await tvApi.search(searchTerm);
+            // console.log(movieResults, 'movieSearch');
+            // console.log(tvResults, 'tvsearch');
 
             this.setState({
                 movieResults,
@@ -67,32 +74,37 @@ export default class extends React.Component {
             error,
             searchTerm,
             loading,
+            updateTerm,
         } = this.state;
+        // console.log(this.state);
 
-        console.log(this.state)
+        return (
+            <SearchPresenter
+                movieResults={
+                    movieResults
+                }
+                tvResults={
+                    tvResults
+                }
+                searchTerm={
+                    searchTerm
+                }
+                error={
+                    error
+                }
+                loading={
+                    loading
+                }
+                handleSubmit={
+                    this.handleSubmit
+                }
+                updateTerm={
+                    this.updateTerm
+                }
 
-        return ( <
-            SearchPresenter movieResults = {
-                movieResults
-            }
-            tvResults = {
-                tvResults
-            }
-            searchTerm = {
-                searchTerm
-            }
-            error = {
-                error
-            }
-            loading = {
-                loading
-            }
-            handleSubmit = {
-                this.handleSubmit
-            }
-
-            / >
+            />
         )
     }
 
 }
+

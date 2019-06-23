@@ -49,17 +49,19 @@ const SLink = styled(Link)`
 export default withRouter(({ location: { pathname } }) => (
     <Header>
         {
-            console.log(pathname, 'header.js에서 호출 위치를 알수있다')
+            // console.log(pathname, 'header.js에서 호출 위치를 알수있다')
         }
         <List>
             <Item current={pathname === "/"}>
                 <SLink to="Home">Home</SLink>
             </Item>
-            <Item current={pathname === "/Search"}>
-                <SLink to="Search">Search</SLink>
-            </Item>
+
             <Item current={pathname === "/TV"}>
                 <SLink to="TV">TV</SLink>
+            </Item>
+
+            <Item current={pathname === "/Search"}>
+                <SLink to="Search">Search</SLink>
             </Item>
 
         </List>
