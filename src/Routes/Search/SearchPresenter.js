@@ -46,6 +46,7 @@ const SearchPresenter = ({
                            (
                               <Poster
                                  key={movie.id}
+                                 id={movie.id}
                                  imageUrl={movie.poster_path}
                                  title={movie.title}
                                  rating={movie.vote_average}
@@ -63,7 +64,9 @@ const SearchPresenter = ({
                      <Section title="tv Results ">
                         {tvResults.map(show =>
                            <Poster
+                              key={show.id}
                               id={show.id}
+
                               imageUrl={show.poster_path}
                               title={show.original_name}
                               rating={show.vote_average}

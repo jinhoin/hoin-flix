@@ -19,12 +19,12 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
           <Section title="Top Rated Shows">
             {topRated.map(show =>
               <Poster
+                key={show.id}
                 id={show.id}
                 imageUrl={show.poster_path}
                 title={show.original_name}
                 rating={show.vote_average}
                 year={show.first_air_date.substring(0, 4)}
-                isShow={true}
               />
 
             )}
@@ -35,6 +35,7 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
             {popular.map(
               show =>
                 <Poster
+                  key={show.id}
                   id={show.id}
                   imageUrl={show.poster_path}
                   title={show.original_name}
@@ -49,12 +50,12 @@ const TVPresenter = ({ topRated, popular, airingToday, loading, error }) =>
           <Section title="Airing Today">
             {airingToday.map(show =>
               <Poster
+                key={show.id}
                 id={show.id}
                 imageUrl={show.poster_path}
                 title={show.original_name}
                 rating={show.vote_average}
                 year={show.first_air_date.substring(0, 4)}
-                isShow={true}
               />
             )}
           </Section>

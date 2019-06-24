@@ -22,7 +22,6 @@ export default class extends React.Component {
                 params: { id }
             },
             history: { push },
-            location: { pathname }
         } = this.props;
         const { isMovie } = this.state;
 
@@ -30,12 +29,12 @@ export default class extends React.Component {
 
         const parsedId = parseInt(id);
         if (isNaN(parsedId)) {
-            return push('/Home');
+            return push('/');
         }
         let result = null;
         try {
             if (isMovie) {
-                ({ data: result } = await moviesApi.movieDeatail(parsedId));
+                ({ data: result } = await moviesApi.movieDetail(parsedId));
             } else {
                 ({ data: result } = await tvApi.showDetail((parsedId)));
 
@@ -56,15 +55,9 @@ export default class extends React.Component {
 
 
     render() {
-        console.log('props', this.state);
-        const {
-            result,
-            error,
-            loading
-        } = this.state;
-        return (
-            <DetailPresenter  />
+        const { result, error, loading } = this.state;
+        console.log('result', result);
 
-        )
+        return <DetailPresenter result={result} error={error} loading={loading} />
     }
 }

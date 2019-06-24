@@ -31,6 +31,8 @@ const HomePresenter = ({
             {upComing.map(movie =>
               <Poster
                 key={movie.id}
+                id={movie.id}
+
                 imageUrl={movie.poster_path}
                 title={movie.title}
                 rating={movie.vote_average}
@@ -46,6 +48,8 @@ const HomePresenter = ({
             {nowPlaying.map(movie =>
               <Poster
                 key={movie.id}
+                id={movie.id}
+
                 imageUrl={movie.poster_path}
                 title={movie.title}
                 rating={movie.vote_average}
@@ -60,6 +64,7 @@ const HomePresenter = ({
             {popular.map(movie =>
               <Poster
                 key={movie.id}
+                id={movie.id}
                 imageUrl={movie.poster_path}
                 title={movie.title}
                 rating={movie.vote_average}

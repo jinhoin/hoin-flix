@@ -18,8 +18,7 @@ const globalStyles = createGlobalStyle`
         background-color : black;
         color: white;
         opacity: 0.9;
-
-                 padding-top:50px;
+        padding-top:50px;
 
     }
 

@@ -24,7 +24,6 @@ export default class extends React.Component {
 
     updateTerm = (event) => {
         const { target: { value } } = event;
-        console.log(value);
         this.setState({
             searchTerm: value
         });
@@ -71,10 +70,9 @@ export default class extends React.Component {
         const {
             movieResults,
             tvResults,
-            error,
             searchTerm,
             loading,
-            updateTerm,
+            error,
         } = this.state;
         // console.log(this.state);
 
@@ -95,8 +93,7 @@ export default class extends React.Component {
                 loading={
                     loading
                 }
-                handleSubmit={
-                    this.handleSubmit
+                handleSubmit={this.handleSubmit
                 }
                 updateTerm={
                     this.updateTerm
