@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/hoinfilx/static/js/main.9860470d.chunk.js",
+    "main.js.map": "/hoinfilx/static/js/main.9860470d.chunk.js.map",
+    "runtime~main.js": "/hoinfilx/static/js/runtime~main.8042d810.js",
+    "runtime~main.js.map": "/hoinfilx/static/js/runtime~main.8042d810.js.map",
+    "static/js/2.f04b92fc.chunk.js": "/hoinfilx/static/js/2.f04b92fc.chunk.js",
+    "static/js/2.f04b92fc.chunk.js.map": "/hoinfilx/static/js/2.f04b92fc.chunk.js.map",
+    "index.html": "/hoinfilx/index.html",
+    "precache-manifest.22d9b5d9effae8fcfadc05ac9f624942.js": "/hoinfilx/precache-manifest.22d9b5d9effae8fcfadc05ac9f624942.js",
+    "service-worker.js": "/hoinfilx/service-worker.js",
+    "static/media/404.jpg": "/hoinfilx/static/media/404.fbe3c4c0.jpg"
+  }
+}
