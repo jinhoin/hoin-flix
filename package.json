@@ -1,5 +1,5 @@
 {
-  "name": "hoinfilx",
+  "name": "hoin-flix",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://jinhoin.github.io/hoinfilx",
+  "homepage": "https://jinhoin.github.io/hoin-flix",
   "browserslist": {
     "production": [
       ">0.2%",
