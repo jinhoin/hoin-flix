@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Loader from "Components/Loader";
 import styled from "styled-components";
 import Message from "Components/Message";
+import Helmet from "react-helmet";
 
 
 const Conatiner = styled.div`
@@ -74,13 +75,51 @@ const Divider = styled.span`
     margin : 0;
 `;
 
+const Production = styled.div`
+    width: 80%;
+    height: 20%;
+    /* border: 1px solid white; */
+    background-color: white;
+    opacity: 0.3;
+    position: relative;
+    border-radius: 12px;
+    margin-top: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+`;
+const PdoHeader = styled.span`
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: red;
+    opacity: 1;
+    font-weight: bold;
+    font-size: 15px;
+`;
+
+const PdoList = styled.ul`
+    width: 90%;
+    height: 80%;
+    border: 1px solid red;
+`;
+
 const DetailPresenter = ({ result, error, loading }) =>
     loading ? (
+        <>
+        <Helmet>
+            <title>Loading | HoinFlix</title>
+        </Helmet>
         <Loader />
+        </>
     ) : (
             <>
                 {
                     <Conatiner>
+                        <Helmet>
+                            <title>{result.original_title ? result.original_title : result.original_name} | hoinflix </title>
+                        </Helmet>
                         <Backdrop bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`} />
                         <Content>
                             <Cover
@@ -104,6 +143,12 @@ const DetailPresenter = ({ result, error, loading }) =>
                                     {result.overview ? result.overview : `${result.overview}를 못찾았습니다`}
 
                                 </OverView>
+                                <Production>
+                                        <PdoHeader>Production Compaines</PdoHeader>
+                                        <PdoList>
+
+                                        </PdoList>
+                                </Production>
                             </Data>
                         </Content>
 
